@@ -7,18 +7,18 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useToast } from '@/components/ui/use-toast'
 
-export function SignInForm() {
+export function SignUpForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
 
-  const handleSignIn = async (e: React.FormEvent) => {
+  const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { error } = await supabase.auth.signUp({
         email,
         password,
       })
@@ -27,12 +27,12 @@ export function SignInForm() {
 
       toast({
         title: "Success!",
-        description: "You have been signed in.",
+        description: "Check your email for the confirmation link.",
       })
     } catch (error: any) {
       toast({
         title: "Error",
-        description: error?.message || "An error occurred during sign in",
+        description: error?.message || "An error occurred during sign up",
         variant: "destructive",
       })
     } finally {
@@ -41,7 +41,7 @@ export function SignInForm() {
   }
 
   return (
-    <form onSubmit={handleSignIn} className="space-y-4">
+    <form onSubmit={handleSignUp} className="space-y-4">
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <Input
@@ -65,7 +65,7 @@ export function SignInForm() {
         />
       </div>
       <Button type="submit" className="w-full" disabled={loading}>
-        {loading ? "Signing in..." : "Sign In"}
+        {loading ? "Creating account..." : "Sign Up"}
       </Button>
     </form>
   )
