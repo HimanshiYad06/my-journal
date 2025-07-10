@@ -63,10 +63,10 @@ const themeConfig = {
   aurora: {
     bg: 'bg-[#1a1026]', // deep purple/blue
     text: 'text-white',
-    glass: 'bg-white/10 border border-fuchsia-400 shadow-xl backdrop-blur-lg',
+    glass: 'bg-white/10 shadow-xl backdrop-blur-lg',
     accent: 'text-pink-400',
     hover: 'hover:bg-fuchsia-900/40',
-    containerBg: 'bg-white/10 border border-fuchsia-400'
+    containerBg: 'bg-white/10'
   },
   dark: {
     bg: 'bg-[#181210]',
@@ -322,7 +322,7 @@ export default function Dashboard() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className={`w-full min-h-screen px-0 py-6 ${theme.containerBg} flex flex-col gap-6`}
+        className={`w-full min-h-screen px-0 py-6 flex flex-col gap-6`}
         style={{ boxShadow: '0 8px 40px 0 rgba(0,0,0,0.45)' }}
       >
         <Tabs defaultValue="overview" className="space-y-6">
