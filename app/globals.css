@@ -241,3 +241,11 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
+
+.glassy-aurora-card {
+  background: rgba(30,30,40,0.38) !important; /* slightly more opaque for card readability */
+  border: 1.5px solid rgba(255,255,255,0.13);
+  box-shadow: 0 4px 32px 0 rgba(162,89,255,0.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
