@@ -66,7 +66,7 @@ const themeConfig = {
     glass: 'bg-white/10 shadow-xl backdrop-blur-lg',
     accent: 'text-pink-400',
     hover: 'hover:bg-fuchsia-900/40',
-    containerBg: 'bg-white/10'
+    containerBg: ''
   },
   dark: {
     bg: 'bg-[#181210]',
@@ -323,7 +323,7 @@ export default function Dashboard() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className={`w-full min-h-screen px-0 py-6 flex flex-col gap-6`}
-        style={{ boxShadow: '0 8px 40px 0 rgba(0,0,0,0.45)' }}
+        style={{ }}
       >
         <Tabs defaultValue="overview" className="space-y-6">
           <TabsList className="flex gap-2 glassy-aurora-nav p-2 rounded-xl shadow mb-4 backdrop-blur-lg">
