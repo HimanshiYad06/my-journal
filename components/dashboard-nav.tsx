@@ -62,7 +62,7 @@ export function DashboardNav({ className, items, ...props }: NavProps) {
             href={item.href}
             className={cn(
               "flex items-center text-sm font-medium transition-colors",
-              pathname === item.href ? "text-primary-foreground" : "text-muted-foreground hover:text-primary",
+              pathname === item.href ? "text-fuchsia-400" : "text-fuchsia-200 hover:text-fuchsia-400",
             )}
           >
             {item.icon}

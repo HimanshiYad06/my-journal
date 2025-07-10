@@ -11,6 +11,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { UserNav } from "@/components/user-nav"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Loader2 } from "lucide-react"
+import Aurora from "@/components/Aurora"
 
 export default function DashboardLayout({
   children,
@@ -83,7 +84,10 @@ export default function DashboardLayout({
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative" style={{ background: 'transparent' }}>
+      <div style={{ position: 'fixed', inset: 0, zIndex: -10, pointerEvents: 'none' }} aria-hidden="true">
+        <Aurora colorStops={["#FF69B4", "#3A29FF", "#A259FF", "#A259FF"]} amplitude={1.0} blend={0.3} />
+      </div>
       {/* Top navigation bar for desktop */}
       <div className="hidden md:flex w-full border-b bg-background z-50 h-16 items-center justify-center px-6">
         <div className="flex flex-1 items-center justify-center">

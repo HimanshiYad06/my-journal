@@ -19,7 +19,6 @@ import { format, subDays } from "date-fns"
 import Link from "next/link"
 import { UserLevel } from '@/components/user-level'
 import { FiMenu, FiX, FiPlus, FiSearch, FiSettings, FiLogOut, FiMoon, FiSun } from 'react-icons/fi'
-import { Starfield } from '@/components/Starfield'
 
 interface Stats {
   totalEntries: number
@@ -61,6 +60,14 @@ interface JournalEntry {
 type Theme = 'light' | 'dark' | 'cyberpunk' | 'pastel' | 'forest'
 
 const themeConfig = {
+  aurora: {
+    bg: 'bg-[#1a1026]', // deep purple/blue
+    text: 'text-white',
+    glass: 'bg-white/10 border border-fuchsia-400 shadow-xl backdrop-blur-lg',
+    accent: 'text-pink-400',
+    hover: 'hover:bg-fuchsia-900/40',
+    containerBg: 'bg-white/10 border border-fuchsia-400'
+  },
   dark: {
     bg: 'bg-[#181210]',
     text: 'text-slate-200',
@@ -76,14 +83,6 @@ const themeConfig = {
     accent: 'text-cyan-300',
     hover: 'hover:bg-[#334155]/80',
     containerBg: 'bg-[#1e293b] border border-[#334155]'
-  },
-  forest: {
-    bg: 'bg-green-900',
-    text: 'text-emerald-100',
-    glass: 'bg-green-950 border border-emerald-700 shadow-lg',
-    accent: 'text-emerald-300',
-    hover: 'hover:bg-emerald-900/80',
-    containerBg: 'bg-green-950 border border-emerald-700'
   }
 }
 
@@ -108,8 +107,7 @@ export default function Dashboard() {
   })
   const [selectedEntry, setSelectedEntry] = useState<JournalEntry | null>(null)
   const [isWriting, setIsWriting] = useState(false)
-  const [currentTheme, setCurrentTheme] = useState<Theme>('dark')
-  const theme = themeConfig[currentTheme]
+  const theme = themeConfig['aurora']
 
   useEffect(() => {
     const fetchData = async () => {
@@ -319,7 +317,7 @@ export default function Dashboard() {
   }
 
   return (
-    <main className={`min-h-screen w-full ${theme.bg} ${theme.text} flex flex-col items-center justify-start`}>
+    <main className={`min-h-screen w-full ${theme.text} flex flex-col items-center justify-start`} style={{ zIndex: 1, position: 'relative', background: 'transparent' }}>
       <motion.section
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -328,28 +326,28 @@ export default function Dashboard() {
         style={{ boxShadow: '0 8px 40px 0 rgba(0,0,0,0.45)' }}
       >
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="flex gap-2 bg-[#232323] p-2 rounded-xl shadow mb-4">
+          <TabsList className="flex gap-2 glassy-aurora-nav p-2 rounded-xl shadow mb-4 backdrop-blur-lg">
             <TabsTrigger
               value="overview"
-              className={`px-6 py-2 rounded-lg font-semibold text-base transition-colors focus:outline-none focus:ring-2 focus:ring-sky-300
-                data-[state=active]:bg-sky-900/40 data-[state=active]:text-sky-300 data-[state=active]:shadow
-                data-[state=inactive]:text-slate-300 hover:bg-[#232323]/80`}
+              className={`px-6 py-2 rounded-lg font-semibold text-base transition-colors focus:outline-none focus:ring-2 focus:ring-fuchsia-400
+                data-[state=active]:bg-[rgba(255,255,255,0.25)] data-[state=active]:text-fuchsia-300 data-[state=active]:shadow-lg
+                data-[state=inactive]:text-fuchsia-100 hover:bg-[rgba(255,255,255,0.10)]`}
             >
               Overview
             </TabsTrigger>
             <TabsTrigger
               value="analytics"
-              className={`px-6 py-2 rounded-lg font-semibold text-base transition-colors focus:outline-none focus:ring-2 focus:ring-sky-300
-                data-[state=active]:bg-sky-900/40 data-[state=active]:text-sky-300 data-[state=active]:shadow
-                data-[state=inactive]:text-slate-300 hover:bg-[#232323]/80`}
+              className={`px-6 py-2 rounded-lg font-semibold text-base transition-colors focus:outline-none focus:ring-2 focus:ring-fuchsia-400
+                data-[state=active]:bg-[rgba(255,255,255,0.25)] data-[state=active]:text-fuchsia-300 data-[state=active]:shadow-lg
+                data-[state=inactive]:text-fuchsia-100 hover:bg-[rgba(255,255,255,0.10)]`}
             >
               Analytics
             </TabsTrigger>
             <TabsTrigger
               value="achievements"
-              className={`px-6 py-2 rounded-lg font-semibold text-base transition-colors focus:outline-none focus:ring-2 focus:ring-sky-300
-                data-[state=active]:bg-sky-900/40 data-[state=active]:text-sky-300 data-[state=active]:shadow
-                data-[state=inactive]:text-slate-300 hover:bg-[#232323]/80`}
+              className={`px-6 py-2 rounded-lg font-semibold text-base transition-colors focus:outline-none focus:ring-2 focus:ring-fuchsia-400
+                data-[state=active]:bg-[rgba(255,255,255,0.25)] data-[state=active]:text-fuchsia-300 data-[state=active]:shadow-lg
+                data-[state=inactive]:text-fuchsia-100 hover:bg-[rgba(255,255,255,0.10)]`}
             >
               Achievements
             </TabsTrigger>
@@ -638,16 +636,6 @@ export default function Dashboard() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <select
-        value={currentTheme}
-        onChange={(e) => setCurrentTheme(e.target.value as Theme)}
-        className={`${theme.glass} ${theme.text} px-4 py-2 rounded-lg cursor-pointer`}
-      >
-        <option value="dark">Dark</option>
-        <option value="cyberpunk">Cyberpunk</option>
-        <option value="forest">Forest</option>
-      </select>
     </main>
   )
 }

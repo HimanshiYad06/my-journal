@@ -6,12 +6,12 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
+    --card: 270 100% 20% / 0.7;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 142.1 76.2% 36.3%;
-    --primary-foreground: 355.7 100% 97.3%;
+    --primary: 322 90% 55%; /* fuchsia/pink */
+    --primary-foreground: 0 0% 100%; /* white */
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
@@ -33,7 +33,7 @@
     --card-foreground: 0 0% 95%;
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
-    --primary: 142.1 70.6% 45.3%;
+    --primary: 322 90% 55%;
     --primary-foreground: 144.9 80.4% 10%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -77,7 +77,7 @@
     --card-foreground: 210 20% 25%;
     --popover: 180 10% 98%;
     --popover-foreground: 210 20% 25%;
-    --primary: 320 80% 80%;
+    --primary: 322 90% 55%;
     --primary-foreground: 210 20% 25%;
     --secondary: 180 40% 90%;
     --secondary-foreground: 210 20% 25%;
@@ -99,7 +99,7 @@
     --card-foreground: 120 10% 98%;
     --popover: 120 15% 15%;
     --popover-foreground: 120 10% 98%;
-    --primary: 120 70% 40%;
+    --primary: 322 90% 55%;
     --primary-foreground: 120 10% 98%;
     --secondary: 40 60% 30%;
     --secondary-foreground: 120 10% 98%;
@@ -135,7 +135,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: hsl(var(--background));
+  background: transparent !important;
   min-height: 100vh;
 }
 
@@ -159,10 +159,10 @@ body {
 
 /* Glassmorphism utilities */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
 }
 
 /* Gradient text */
@@ -171,30 +171,6 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-/* Animated gradient background */
-.animated-gradient {
-  background: linear-gradient(
-    45deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(17, 0, 32, 0.8) 50%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background-size: 200% 200%;
-  animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 /* Starfield effect */
@@ -233,8 +209,12 @@ body {
 }
 
 /* Hover effects */
+.hover-glow {
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 16px 4px #a259ff, 0 0 4px 1px #fff;
+  z-index: 2;
 }
 
 /* Loading animation */
@@ -247,4 +227,17 @@ body {
   0% { content: '.'; }
   33% { content: '..'; }
   66% { content: '...'; }
+}
+
+.aurora-card {
+  background: rgba(0,0,0,0.25) !important;
+}
+
+/* Aurora glassy nav for dashboard tabs */
+.glassy-aurora-nav {
+  background: rgba(30,30,40,0.22); /* darker, subtle glass effect */
+  border: 1.5px solid rgba(255,255,255,0.13);
+  box-shadow: 0 4px 32px 0 rgba(162,89,255,0.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }

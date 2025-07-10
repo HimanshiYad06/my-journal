@@ -14,6 +14,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Mic, Save, X } from "lucide-react"
 import { motion } from "framer-motion"
+import Aurora from "@/components/Aurora"
 
 export default function CreateJournalPage() {
   const { supabase, user } = useSupabase()
@@ -252,137 +253,140 @@ export default function CreateJournalPage() {
   }
 
   return (
-    <div className="flex-1 space-y-4 p-4 pt-6 md:p-8">
-      <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold tracking-tight">New Journal Entry</h2>
-        <div className="flex items-center space-x-2">
-          <Button variant="outline" onClick={() => router.back()}>
-            Cancel
-          </Button>
-          <Button onClick={handleSave} disabled={loading}>
-            {loading ? "Saving..." : "Save Journal"}
-          </Button>
-        </div>
-      </div>
-
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        <Card>
-          <CardHeader>
-            <CardTitle>Create a new journal entry</CardTitle>
-            <CardDescription>Express your thoughts, feelings, and experiences.</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="title">Title</Label>
-              <Input
-                id="title"
-                placeholder="Give your journal entry a title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="content">Content</Label>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={toggleVoiceRecording}
-                  className={isRecording ? "bg-red-100 text-red-600" : ""}
-                >
-                  <Mic className={`mr-2 h-4 w-4 ${isRecording ? "animate-pulse text-red-600" : ""}`} />
-                  {isRecording ? "Recording..." : "Voice Input"}
-                </Button>
-              </div>
-              <Textarea
-                id="content"
-                placeholder="Write your thoughts here..."
-                className="min-h-[200px]"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-              />
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="mood">Mood</Label>
-                <Select value={mood} onValueChange={setMood}>
-                  <SelectTrigger id="mood">
-                    <SelectValue placeholder="How are you feeling?" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="happy">Happy 😊</SelectItem>
-                    <SelectItem value="sad">Sad 😢</SelectItem>
-                    <SelectItem value="angry">Angry 😠</SelectItem>
-                    <SelectItem value="excited">Excited 🤩</SelectItem>
-                    <SelectItem value="calm">Calm 😌</SelectItem>
-                    <SelectItem value="anxious">Anxious 😰</SelectItem>
-                    <SelectItem value="neutral">Neutral 😐</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="privacy">Privacy</Label>
-                <Select
-                  value={isPrivate ? "private" : "public"}
-                  onValueChange={(value) => setIsPrivate(value === "private")}
-                >
-                  <SelectTrigger id="privacy">
-                    <SelectValue placeholder="Select privacy setting" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="private">Private</SelectItem>
-                    <SelectItem value="public">Public</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="tags">Tags</Label>
-              <div className="flex space-x-2">
-                <Input
-                  id="tags"
-                  placeholder="Add tags"
-                  value={currentTag}
-                  onChange={(e) => setCurrentTag(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                />
-                <Button type="button" onClick={handleAddTag} variant="secondary">
-                  Add
-                </Button>
-              </div>
-              <div className="flex flex-wrap gap-2 pt-2">
-                {tags.map((tag, index) => (
-                  <div key={index} className="flex items-center rounded-full bg-secondary px-3 py-1 text-sm">
-                    {tag}
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="ml-1 h-5 w-5 rounded-full p-0"
-                      onClick={() => handleRemoveTag(tag)}
-                    >
-                      <X className="h-3 w-3" />
-                      <span className="sr-only">Remove {tag} tag</span>
-                    </Button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </CardContent>
-          <CardFooter className="flex justify-between">
+    <div className="relative min-h-screen">
+      <Aurora colorStops={["#FF69B4", "#3A29FF", "#A259FF"]} blend={0.8} amplitude={1.0} speed={0.5} />
+      <div className="relative z-10 flex-1 space-y-4 p-4 pt-6 md:p-8">
+        <div className="flex items-center justify-between">
+          <h2 className="text-3xl font-bold tracking-tight">New Journal Entry</h2>
+          <div className="flex items-center space-x-2">
             <Button variant="outline" onClick={() => router.back()}>
               Cancel
             </Button>
             <Button onClick={handleSave} disabled={loading}>
-              <Save className="mr-2 h-4 w-4" />
               {loading ? "Saving..." : "Save Journal"}
             </Button>
-          </CardFooter>
-        </Card>
-      </motion.div>
+          </div>
+        </div>
+
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <Card>
+            <CardHeader>
+              <CardTitle>Create a new journal entry</CardTitle>
+              <CardDescription>Express your thoughts, feelings, and experiences.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="title">Title</Label>
+                <Input
+                  id="title"
+                  placeholder="Give your journal entry a title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <Label htmlFor="content">Content</Label>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={toggleVoiceRecording}
+                    className={isRecording ? "bg-red-100 text-red-600" : ""}
+                  >
+                    <Mic className={`mr-2 h-4 w-4 ${isRecording ? "animate-pulse text-red-600" : ""}`} />
+                    {isRecording ? "Recording..." : "Voice Input"}
+                  </Button>
+                </div>
+                <Textarea
+                  id="content"
+                  placeholder="Write your thoughts here..."
+                  className="min-h-[200px]"
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                />
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="mood">Mood</Label>
+                  <Select value={mood} onValueChange={setMood}>
+                    <SelectTrigger id="mood">
+                      <SelectValue placeholder="How are you feeling?" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="happy">Happy 😊</SelectItem>
+                      <SelectItem value="sad">Sad 😢</SelectItem>
+                      <SelectItem value="angry">Angry 😠</SelectItem>
+                      <SelectItem value="excited">Excited 🤩</SelectItem>
+                      <SelectItem value="calm">Calm 😌</SelectItem>
+                      <SelectItem value="anxious">Anxious 😰</SelectItem>
+                      <SelectItem value="neutral">Neutral 😐</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="privacy">Privacy</Label>
+                  <Select
+                    value={isPrivate ? "private" : "public"}
+                    onValueChange={(value) => setIsPrivate(value === "private")}
+                  >
+                    <SelectTrigger id="privacy">
+                      <SelectValue placeholder="Select privacy setting" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="private">Private</SelectItem>
+                      <SelectItem value="public">Public</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="tags">Tags</Label>
+                <div className="flex space-x-2">
+                  <Input
+                    id="tags"
+                    placeholder="Add tags"
+                    value={currentTag}
+                    onChange={(e) => setCurrentTag(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                  />
+                  <Button type="button" onClick={handleAddTag} variant="secondary">
+                    Add
+                  </Button>
+                </div>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {tags.map((tag, index) => (
+                    <div key={index} className="flex items-center rounded-full bg-secondary px-3 py-1 text-sm">
+                      {tag}
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="ml-1 h-5 w-5 rounded-full p-0"
+                        onClick={() => handleRemoveTag(tag)}
+                      >
+                        <X className="h-3 w-3" />
+                        <span className="sr-only">Remove {tag} tag</span>
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Button variant="outline" onClick={() => router.back()}>
+                Cancel
+              </Button>
+              <Button onClick={handleSave} disabled={loading}>
+                <Save className="mr-2 h-4 w-4" />
+                {loading ? "Saving..." : "Save Journal"}
+              </Button>
+            </CardFooter>
+          </Card>
+        </motion.div>
+      </div>
     </div>
   )
 }

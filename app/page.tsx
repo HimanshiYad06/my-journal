@@ -3,9 +3,9 @@
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import { Inter } from 'next/font/google';
-import { Starfield } from '@/components/Starfield';
 import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
+import Aurora from "@/components/Aurora";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -184,13 +184,13 @@ export default function LandingPage() {
   }
 
   return (
-    <main className={`min-h-screen bg-black text-white ${inter.className} animated-gradient`}>
-      <Starfield />
+    <main className={`min-h-screen text-white ${inter.className}`} style={{ background: 'rgba(255,255,255,0.45)' }}>
+      <Aurora colorStops={["#FF69B4", "#3A29FF", "#A259FF", "#A259FF"]} amplitude={1.0} blend={0.5} />
       
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 w-full glass z-50"
+        className="fixed top-0 w-full z-50 bg-[rgba(255,255,255,0.45)] border-b-4 border-fuchsia-400 shadow-2xl backdrop-blur-lg rounded-b-2xl"
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
@@ -228,14 +228,6 @@ export default function LandingPage() {
                 className="px-4 py-2 glass rounded-full text-white hover-glow transition-all"
               >
                 Sign Up
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-full glass"
-              >
-                {darkMode ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
               </motion.button>
             </div>
 
@@ -301,10 +293,6 @@ export default function LandingPage() {
 
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.div 
-          style={{ y: ySpring }} 
-          className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black"
-        />
-        <motion.div 
           style={{ scale, opacity, rotateX }}
           className="container mx-auto px-6 text-center relative z-10"
         >
@@ -352,7 +340,7 @@ export default function LandingPage() {
         </motion.div>
       </section>
 
-      <section id="preview" className="py-20 bg-black/50">
+      <section id="preview" className="py-20">
         <div className="container mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -370,12 +358,12 @@ export default function LandingPage() {
             >
               <div className="w-full max-w-2xl mx-auto">
                 <div className="relative">
-                  <div className="aspect-[16/10] glass rounded-t-xl overflow-hidden relative">
+                  <div className="aspect-[16/10] glass rounded-t-xl overflow-hidden relative border-4 border-white shadow-2xl">
                     <div className="h-8 bg-black/80 flex items-center px-4">
                       <div className="flex space-x-2">
                         <div className="w-3 h-3 rounded-full bg-red-500" />
                         <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                        <div className="w-3 h-3 rounded-full bg-green-500" />
+                        <div className="w-3 h-3 rounded-full bg-pink-400" />
                       </div>
                       <div className="flex-1 text-center text-xs text-gray-400">
                         Sanctuary Journal
@@ -419,7 +407,7 @@ export default function LandingPage() {
                     <div className="w-2 h-2 rounded-full bg-gray-400" />
                   </div>
 
-                  <div className="aspect-[9/19.5] glass rounded-[3rem] overflow-hidden relative">
+                  <div className="aspect-[9/19.5] glass rounded-[3rem] overflow-hidden relative border-4 border-fuchsia-400 shadow-2xl">
                     <div className="h-8 bg-black/80 flex items-center justify-between px-6">
                       <span className="text-xs text-white">9:41</span>
                       <div className="flex space-x-2">
@@ -467,7 +455,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="testimonials" className="py-20 bg-black/50">
+      <section id="testimonials" className="py-20">
         <motion.div 
           style={{ y: testimonialsY }}
           className="container mx-auto px-6"
@@ -508,7 +496,7 @@ export default function LandingPage() {
         </motion.div>
       </section>
 
-      <section id="features" className="py-20 bg-black/50">
+      <section id="features" className="py-20">
         <motion.div 
           style={{ y: featuresY }}
           className="container mx-auto px-6"
@@ -563,7 +551,7 @@ export default function LandingPage() {
         </div>
       </motion.div>
 
-      <footer className="py-12 bg-black/50 border-t border-white/10">
+      <footer className="py-12">
         <div className="container mx-auto px-6 text-center">
           <div className="flex justify-center space-x-8 mb-8">
             {['About', 'Contact', 'Privacy'].map((item) => (

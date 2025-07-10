@@ -46,7 +46,7 @@ export function StatsCards({ profile, journalCount }: StatsCardsProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: index * 0.1 }}
         >
-          <Card>
+          <Card className="aurora-card">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">{card.title}</CardTitle>
               {card.icon}
