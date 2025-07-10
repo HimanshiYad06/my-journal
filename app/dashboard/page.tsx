@@ -369,7 +369,7 @@ export default function Dashboard() {
               transition={{ delay: 0.2 }}
               className="grid gap-4 grid-cols-1 lg:grid-cols-2 w-full"
             >
-              <Card className={`w-full text-lg min-h-[300px] ${theme.glass} transition-colors duration-300`}> 
+              <Card className="w-full text-lg min-h-[300px] transition-colors duration-300"> 
                 <CardHeader className="p-4">
                   <CardTitle className={`text-2xl font-bold ${theme.accent}`}>Recent Journals</CardTitle>
                   <CardDescription className={theme.text}>Your most recent journal entries</CardDescription>
@@ -379,7 +379,7 @@ export default function Dashboard() {
                 </CardContent>
               </Card>
 
-              <Card className={`w-full text-lg min-h-[300px] ${theme.glass} transition-colors duration-300`}>
+              <Card className="w-full text-lg min-h-[300px] transition-colors duration-300">
                 <CardHeader className="p-4">
                   <CardTitle className={`text-2xl font-bold ${theme.accent}`}>Writing Prompts</CardTitle>
                   <CardDescription className={theme.text}>Get inspired with these prompts</CardDescription>
@@ -396,7 +396,7 @@ export default function Dashboard() {
               transition={{ delay: 0.3 }}
               className="grid gap-4 grid-cols-1 lg:grid-cols-2 w-full"
             >
-              <Card className={`w-full text-lg min-h-[200px] ${theme.glass} transition-colors duration-300`}>
+              <Card className="w-full text-lg min-h-[200px] transition-colors duration-300">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <div className="space-y-1">
                     <CardTitle className={`text-xl font-semibold ${theme.accent}`}>Level Progress</CardTitle>
@@ -414,7 +414,7 @@ export default function Dashboard() {
                 </CardContent>
               </Card>
 
-              <Card className={`w-full text-lg min-h-[200px] ${theme.glass} transition-colors duration-300`}>
+              <Card className="w-full text-lg min-h-[200px] transition-colors duration-300">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <div className="space-y-1">
                     <CardTitle className={`text-xl font-semibold ${theme.accent}`}>Streak Calendar</CardTitle>
@@ -436,7 +436,7 @@ export default function Dashboard() {
               transition={{ delay: 0.1 }}
               className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
             >
-              <Card className={`col-span-full ${theme.glass} transition-colors duration-300`}>
+              <Card className="col-span-full transition-colors duration-300">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <BarChart3 className="h-5 w-5" />
