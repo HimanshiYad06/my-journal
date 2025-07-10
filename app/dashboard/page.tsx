@@ -317,13 +317,12 @@ export default function Dashboard() {
   }
 
   return (
-    <main className={`min-h-screen w-full ${theme.text} flex flex-col items-center justify-start`} style={{ zIndex: 1, position: 'relative', background: 'transparent' }}>
+    <main className="flex-1 space-y-4 p-4 pt-6 md:p-8">
       <motion.section
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className={`w-full min-h-screen px-0 py-6 flex flex-col gap-6`}
-        style={{ }}
+        className="w-full flex flex-col gap-6"
       >
         <Tabs defaultValue="overview" className="space-y-6">
           <TabsList className="flex gap-2 glassy-aurora-nav p-2 rounded-xl shadow mb-4 backdrop-blur-lg">
