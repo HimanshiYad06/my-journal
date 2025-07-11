@@ -564,7 +564,7 @@ export default function LandingPage() {
               </a>
             ))}
           </div>
-          <p className="text-gray-500">✨ Made under the stars</p>
+          <p className="text-gray-500">✨ <span className="footer-glow">Made under the stars</span></p>
         </div>
       </footer>
     </main>
