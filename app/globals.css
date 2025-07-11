@@ -297,9 +297,25 @@ body {
 .footer-glow {
   color: #e0e0e0;
   text-shadow:
-    0 0 4px #fff8,
-    0 0 8px #fff4;
+    0 0 2px #fff8,
+    0 0 4px #fff4;
   font-weight: 500;
   letter-spacing: 0.02em;
   transition: text-shadow 0.3s;
+  animation: footer-twinkle 2.2s ease-in-out infinite;
+}
+
+@keyframes footer-twinkle {
+  0%, 100% {
+    text-shadow:
+      0 0 2px #fff8,
+      0 0 4px #fff4;
+    opacity: 1;
+  }
+  50% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 8px #fff6;
+    opacity: 0.92;
+  }
 }
