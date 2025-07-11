@@ -335,7 +335,7 @@ export default function LandingPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleStartJournaling}
-              className="px-8 py-4 glass rounded-full text-white hover-glow transition-all border border-white/40 shadow-md"
+              className="px-8 py-4 glass rounded-full text-white hover-glow transition-all border border-white/60 shadow-[0_0_12px_2px_rgba(255,255,255,0.12)]"
             >
               Start Journaling
             </motion.button>
