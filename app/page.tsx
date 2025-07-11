@@ -358,7 +358,7 @@ export default function LandingPage() {
             >
               <div className="w-full max-w-2xl mx-auto">
                 <div className="relative">
-                  <div className="aspect-[16/10] glass rounded-t-xl overflow-hidden relative border-4 border-white shadow-2xl">
+                  <div className="aspect-[16/10] glass rounded-t-xl overflow-hidden relative border-4 border-[rgba(255,255,255,0.18)] shadow-[0_4px_32px_0_rgba(162,89,255,0.18)]">
                     <div className="h-8 bg-black/80 flex items-center px-4">
                       <div className="flex space-x-2">
                         <div className="w-3 h-3 rounded-full bg-red-500" />
@@ -407,7 +407,7 @@ export default function LandingPage() {
                     <div className="w-2 h-2 rounded-full bg-gray-400" />
                   </div>
 
-                  <div className="aspect-[9/19.5] glass rounded-[3rem] overflow-hidden relative border-4 border-fuchsia-400 shadow-2xl">
+                  <div className="aspect-[9/19.5] glass rounded-[3rem] overflow-hidden relative border-4 border-[rgba(255,255,255,0.18)] shadow-[0_4px_32px_0_rgba(162,89,255,0.18)]">
                     <div className="h-8 bg-black/80 flex items-center justify-between px-6">
                       <span className="text-xs text-white">9:41</span>
                       <div className="flex space-x-2">
