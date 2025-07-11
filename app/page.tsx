@@ -307,7 +307,7 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className="text-6xl md:text-7xl font-bold gradient-text"
+                className="text-6xl md:text-7xl font-bold gradient-text leading-tight pb-2"
               >
                 Your Digital
               </motion.h1>
@@ -315,7 +315,7 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="text-6xl md:text-7xl font-bold gradient-text"
+                className="text-6xl md:text-7xl font-bold gradient-text leading-tight pb-2"
               >
                 <HorizontalTypewriter text="Sanctuary" />
               </motion.div>
@@ -333,7 +333,7 @@ export default function LandingPage() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleStartJournaling}
-            className="px-8 py-4 glass rounded-full text-white hover-glow transition-all"
+            className="px-8 py-4 glass rounded-full text-white hover-glow transition-all border border-white/40 shadow-md"
           >
             Start Journaling
           </motion.button>
