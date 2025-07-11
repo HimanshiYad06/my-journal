@@ -184,13 +184,13 @@ export default function LandingPage() {
   }
 
   return (
-    <main className={`min-h-screen text-white ${inter.className}`} style={{ background: 'rgba(255,255,255,0.45)' }}>
+    <main className={`min-h-screen text-white ${inter.className}`} style={{ background: 'black' }}>
       <Aurora colorStops={["#FF69B4", "#3A29FF", "#A259FF", "#A259FF"]} amplitude={1.0} blend={0.5} />
       
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 w-full z-50 bg-[rgba(255,255,255,0.45)] border-b-4 border-fuchsia-400 shadow-2xl backdrop-blur-lg rounded-b-2xl"
+        className="fixed top-0 w-full z-50 bg-transparent border-b-4 border-fuchsia-400 shadow-2xl backdrop-blur-lg rounded-b-2xl"
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">

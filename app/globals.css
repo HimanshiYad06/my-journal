@@ -257,3 +257,8 @@ body {
   box-shadow: 0 0 10px 2px #a259ff88, 0 0 2px 1px #fff2;
   z-index: 2;
 }
+
+.streak-glow {
+  box-shadow: 0 0 16px 6px #ff69b4, 0 0 32px 12px #a259ff;
+  z-index: 1;
+}

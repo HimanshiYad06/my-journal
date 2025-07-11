@@ -40,12 +40,13 @@ export function StreakCalendar({ journals }: StreakCalendarProps) {
         ))}
         {calendarDays.map((day, i) => {
           const hasEntry = hasJournalEntry(day)
+          const isToday = new Date().toDateString() === day.toDateString();
           return (
             <motion.div
               key={i}
-              className={`flex aspect-square items-center justify-center rounded-full text-xs ${
-                hasEntry ? "bg-primary text-primary-foreground" : "hover:bg-muted"
-              }`}
+              className={`flex aspect-square items-center justify-center rounded-full text-xs transition-shadow duration-300 ${
+                hasEntry ? "bg-primary text-primary-foreground streak-glow" : "hover:bg-muted"
+              } ${isToday ? "ring-2 ring-pink-400" : ""}`}
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
             >
