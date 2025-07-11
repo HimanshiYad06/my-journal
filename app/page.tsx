@@ -307,8 +307,7 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className="text-6xl md:text-7xl font-bold gradient-text leading-[1.1] pb-2 pt-2"
-                style={{ lineHeight: 1.1, paddingBottom: '0.25em', paddingTop: '0.25em' }}
+                className="text-6xl md:text-7xl font-bold gradient-text"
               >
                 Your Digital
               </motion.h1>
@@ -316,8 +315,7 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="text-6xl md:text-7xl font-bold gradient-text leading-[1.1] pb-2"
-                style={{ lineHeight: 1.1, paddingBottom: '0.25em' }}
+                className="text-6xl md:text-7xl font-bold gradient-text"
               >
                 <HorizontalTypewriter text="Sanctuary" />
               </motion.div>
@@ -360,7 +358,7 @@ export default function LandingPage() {
             >
               <div className="w-full max-w-2xl mx-auto">
                 <div className="relative">
-                  <div className="aspect-[16/10] glass rounded-t-xl overflow-hidden relative border-4 border-[rgba(255,255,255,0.55)] shadow-[0_8px_48px_0_rgba(162,89,255,0.45)] ring-4 ring-fuchsia-400/30">
+                  <div className="aspect-[16/10] glass rounded-t-xl overflow-hidden relative border-4 border-[rgba(255,255,255,0.35)] shadow-[0_4px_32px_0_rgba(162,89,255,0.32)]">
                     <div className="h-8 bg-black/80 flex items-center px-4">
                       <div className="flex space-x-2">
                         <div className="w-3 h-3 rounded-full bg-red-500" />
