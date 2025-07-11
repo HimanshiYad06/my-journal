@@ -262,3 +262,34 @@ body {
   box-shadow: 0 0 16px 6px #ff69b4, 0 0 32px 12px #a259ff;
   z-index: 1;
 }
+
+.avatar-glow {
+  box-shadow: 0 0 0 0 #a259ff00;
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.avatar-glow:hover, .avatar-glow:focus {
+  box-shadow: 0 0 16px 4px #a259ff, 0 0 8px 2px #ff69b4;
+  z-index: 2;
+}
+
+.aurora-avatar-gradient {
+  background: conic-gradient(
+    from 0deg,
+    #FF69B4 0%,
+    #3A29FF 33%,
+    #A259FF 66%,
+    #FF69B4 100%
+  );
+  animation: aurora-gradient-move 3s linear infinite;
+}
+
+@keyframes aurora-gradient-move {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

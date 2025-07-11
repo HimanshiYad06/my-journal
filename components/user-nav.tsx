@@ -48,10 +48,11 @@ export function UserNav() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-          <Avatar className="h-8 w-8">
+        <Button variant="ghost" className="relative h-10 w-10 rounded-full p-0 avatar-glow group">
+          <span className="absolute inset-0 rounded-full aurora-avatar-gradient opacity-90 group-hover:opacity-100 transition-opacity z-0"></span>
+          <Avatar className="h-10 w-10 relative z-10 border-2 border-transparent group-hover:border-fuchsia-400 transition-all bg-[rgba(255,255,255,0.85)]">
             <AvatarImage src={profile?.avatar_url || ""} alt={profile?.username || "User"} />
-            <AvatarFallback>{profile?.username?.charAt(0).toUpperCase() || "U"}</AvatarFallback>
+            <AvatarFallback className="font-bold text-lg text-white drop-shadow-md">{profile?.username?.charAt(0).toUpperCase() || "U"}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>

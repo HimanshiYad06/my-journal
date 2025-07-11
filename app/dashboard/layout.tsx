@@ -89,7 +89,7 @@ export default function DashboardLayout({
         <Aurora colorStops={["#FF69B4", "#3A29FF", "#A259FF", "#A259FF"]} amplitude={1.0} blend={0.3} />
       </div>
       {/* Top navigation bar for desktop */}
-      <div className="hidden md:flex w-full z-50 h-16 items-center justify-center px-6 glassy-aurora-nav rounded-b-2xl">
+      <div className="hidden md:flex w-full z-50 h-16 items-center justify-center px-6 glassy-aurora-nav border-b-4 border-fuchsia-400 rounded-b-2xl">
         <div className="flex flex-1 items-center justify-center">
           <DashboardNav />
         </div>
